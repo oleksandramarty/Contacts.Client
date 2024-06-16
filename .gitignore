@@ -1,0 +1,42 @@
+# Node modules
+/node_modules
+
+# Compiled output
+/dist
+/*.js
+/*.js.map
+
+# Log files
+*.log
+
+# IDE/editor specific files
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Dependency directories
+/bower_components
+
+# OSX specific files
+.DS_Store
+
+# Environment variables
+.env
+.env.prod
+.env.prod.local
+.env.local
+
+# Angular generated files
+/e2e/*.log
+/e2e/*.json
+/e2e/*.screenshot.png
+/e2e/*.xml
+/e2e/**/*.png
+/e2e/**/*.xml
+/e2e/**/*.css
+/e2e/**/*.js
+/e2e/**/*.map
+
+# Angular cache
+/.angular/cache

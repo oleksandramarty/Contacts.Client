@@ -1,0 +1,80 @@
+<div class="table-wrapper mat-elevation-z8" *ngIf="!!filteredContacts" [style.margin-top.px]="50">
+    <div *ngIf="!!searchForm" [formGroup]="searchForm">
+        <div class="filter-button-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Search contacts</mat-label>
+                <input matInput formControlName="searchLabel" placeholder="Start typing...">
+            </mat-form-field>
+            <div>
+                <button mat-button (click)="resetFilter()" color="warn">Reset filters</button>
+                <button mat-button (click)="openContactInfo()" color="primary">Create Contact</button>
+            </div>
+        </div>
+    </div>
+    <p class="hint">*This is sortable table</p>
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortChanged($event)">
+
+        <ng-container matColumnDef="Open">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button matSuffix (click)="openContactInfo(element.id)">
+                    <mat-icon color="primary">visibility</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button matSuffix (click)="confirmDelete(element.id)">
+                    <mat-icon color="warn">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Id">Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FirstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by First Name">First Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="LastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Last Name">Last Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Email">Email</th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Phone">Phone</th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Title">Title</th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="MiddleInitial">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Middle Initial">Middle Initial</th>
+            <td mat-cell *matCellDef="let element"> {{element.middleInitial}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]="filteredContacts.totalCount"
+                   [pageSize]="filteredContacts?.paginator?.pageSize ?? 5"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   (page)="pageChanged($event)"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>
