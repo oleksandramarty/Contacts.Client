@@ -1,0 +1,155 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.flex-item {
+  display: inline;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.t-align-center {
+  text-align: center;
+}
+.t-align-left {
+  text-align: left;
+}
+.t-align-right {
+  text-align: right;
+}
+
+@for $i from 1 through 500 {
+  $formatted-i: if($i < 10, '00' + $i, if($i < 100, '0' + $i, $i));
+  $font-size: calc($i / 100);
+  .f-#{$formatted-i} { font-size: #{$font-size}rem; }
+}
+@for $i from 1 through 100 {
+  .ml-#{$i} { margin-left: #{$i}#{'%'}; }
+}
+@for $i from 1 through 100 {
+  .mr-#{$i} { margin-right: #{$i}#{'%'}; }
+}
+@for $i from 1 through 500 {
+  .ml-#{$i}p { margin-left: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .mr-#{$i}p { margin-right: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .mb-#{$i}p { margin-bottom: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .mt-#{$i}p { margin-top: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .m-#{$i} { margin: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .pl-#{$i} { padding-left: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .pr-#{$i} { padding-right: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .pb-#{$i} { padding-bottom: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .pt-#{$i} { padding-top: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  .p-#{$i} { padding: #{$i}px; }
+}
+@for $i from 1 through 500 {
+  $formatted-i: if($i < 10, '00' + $i, if($i < 100, '0' + $i, $i));
+  .h-#{$formatted-i} { height: #{$i}px; }
+}
+@for $i from 1 through 10 {
+  $opacity: $i / 10;
+  $formatted-opacity: if($i < 10, '0' + $i, $i);
+
+  .opacity-#{$formatted-opacity} {
+    opacity: $opacity;
+  }
+}
+@for $i from 1 through 100 {
+  .w-#{$i} { width: #{$i}#{'%'}; }
+}
+.f-bold {
+  font-weight: bold;
+}
+.d-inline {
+  display: inline;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.d-block {
+  display: block;
+}
+.mat-datepicker-input {
+  width: calc(100% - 48px) !important;
+}
+mat-form-field {
+  max-width: 300px;
+  min-width: 100px;
+  width: 100%;
+}
+.mdc-dialog__actions {
+  padding: 20px !important;
+}
+.d-flex {
+  display: flex;
+}
+.success-message {
+  color: #4caf50;
+}
+.error-message {
+  color: #f44336;
+}
+.avatar {
+  border-radius: 50%;
+  width: 3rem;
+}
+.filter-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  padding: 5px;
+  min-width: 100px;
+  max-width: 200px;
+  width: 25%;
+}
+.content-wrapper {
+  padding: 24px;
+  min-height: calc(100vh - 192px);
+}
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2196F3; /* Color of the thumb */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.hint {
+  text-align: right;
+  font-size: 0.8em;
+  opacity: 0.5;
+  padding: 0px;
+  margin: 0px;
+}
